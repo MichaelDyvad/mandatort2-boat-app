@@ -1,6 +1,7 @@
 <script>
     import { Router, Route, Link } from "svelte-navigator";
     import Navbar from "./components/navbar/Navbar.svelte"
+    import Footer from "./components/footer/Footer.svelte";
     import Login from "./components/login/Login.svelte";
     import Signup from "./components/login/Signup.svelte"
     import ForgotPassword from "./components/login/ForgotPassword.svelte"
@@ -21,6 +22,7 @@
 </script>
 
 <Router>
+    
     <main>
         <Route path="/home">
         {#if role === "ADMIN"}
@@ -58,6 +60,7 @@
             <ForgotPassword />
         </Route>
 
+        <Footer />
         <SvelteToast />
     </main>
 </Router>

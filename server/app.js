@@ -113,6 +113,7 @@ app.use("/forgotpassword", generalLimiter);
 //Logout to destroy session, so that you can login again
 app.get("/logout", (req, res, next) => {
   req.session.destroy();
+  res.clearCookie("connect.sid");
   console.log("Session detroyed")
   res.redirect("/login")
 })
