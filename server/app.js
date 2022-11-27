@@ -96,11 +96,6 @@ app.get("/api/user", (req, res) => {
   res.send({email:email})
 })
 
-//Home is used for the "home" endpoint - Virker ikke
-app.get("/", (req, res) => {
-  res.redirect("/home")
-})
-
 //Restriction for endpoint roles
 app.use("/home", generalLimiter, redirectLogin);
 app.use("/admin", generalLimiter, onlyAdmin);
@@ -113,7 +108,6 @@ app.use("/forgotpassword", generalLimiter);
 //Logout to destroy session, so that you can login again
 app.get("/logout", (req, res, next) => {
   req.session.destroy();
-  res.clearCookie("connect.sid");
   console.log("Session detroyed")
   res.redirect("/login")
 })
